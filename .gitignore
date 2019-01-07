@@ -1,5 +1,29 @@
-#Ignore .idea folder for webstorm users 
+#Ignore generated dev and production folder
+node_modules/
+dist/
+build/
+dev/
+
+#Ignore .idea folder for webstorm users
 .idea/
 
-#Ignore node_modules folder
-node_modules/
+#Ignore .vscode folder for visual studio users
+.vscode/
+
+
+# Other ignores
+*.log
+src_old
+*.old.js
+phaserTilemapfix
+*.zip
+legacy*
+*.txt
+dump/
+*.docx
+*.patch
+*.bak*
+*.old*
+higherVolume/
+
+
