@@ -9,12 +9,23 @@ class SplashScene extends Phaser.Scene {
     }
     preload(){
         console.log("SplashScene");
-
     }
 
     create() {
+
         const logo = this.add.image(400, 300, 'logo');
-       // this.scene.start('MenuScene');
+
+        //Delay the switch to the main menu
+        const splashScreenTime = 4000;
+        var splashScreenTimer = this.time.addEvent({
+                delay: splashScreenTime,
+                callback: function(){
+                    splashScreenTimer.destroy();
+                    this.scene.start('MenuScene');
+                },
+                callbackScope: this
+            });
+
     }
 }
 
@@ -22,4 +33,4 @@ export default SplashScene;
 
 
 //Resource:
-//https://gamedevacademy.org/creating-a-preloading-screen-in-phaser-3/?a=13
+//Clock Tutorial: https://phaser.io/phaser3/devlog/87

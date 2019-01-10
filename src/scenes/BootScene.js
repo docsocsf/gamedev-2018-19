@@ -92,3 +92,6 @@ class BootScene extends Phaser.Scene {
 }
 
 export default BootScene;
+
+//Resource:
+//Loading Screen Tutorial: https://gamedevacademy.org/creating-a-preloading-screen-in-phaser-3/?a=13
