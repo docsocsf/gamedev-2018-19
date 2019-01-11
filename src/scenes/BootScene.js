@@ -78,10 +78,24 @@ class BootScene extends Phaser.Scene {
         });
 
         /***** Load the resources here *****/
-        this.load.image('logo', '../../assets/images/GameDevlogo.png');
-
+        //Splash Screen
+        this.loadSplashResources();
+        //Main Menu
+        this.loadMenuResources();
         //Used to simply test loading screen
-        for (var i = 0; i < 1000; i++) {
+        this.testLoadingBar();
+    }
+
+    loadSplashResources () {
+        this.load.image('logo', '../../assets/images/GameDevlogo.png');
+    }
+
+    loadMenuResources() {
+
+    }
+
+    testLoadingBar () {
+        for (var i = 0; i < 100; i++) {
             this.load.image('logo'+i, '../../assets/images/GameDevlogo.png');
         }
     }

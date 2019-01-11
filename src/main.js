@@ -8,6 +8,7 @@ const config = {
     type: Phaser.AUTO,
     parent: 'content',
     pixelArt: true,
+    title: 'Karma',
     width: 800,
     height: 600,
     physics: {

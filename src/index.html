@@ -12,6 +12,7 @@
     <style>
         html,
         body {
+          background-color: black;
           margin: 0;
           padding: 0;
              image-rendering: optimizeSpeed;              /* Older versions of FF */
@@ -22,13 +23,29 @@
           -ms-interpolation-mode: nearest-neighbor;    /* IE (non standard naming) */
           image-rendering: pixelated;                  /* Chrome 41 */
         }
+        #content {
+            display: block;
+            width: 80%;
+            height: 80vh;
+            margin: auto;
+            padding-top: 10vh;
+            background-color: aliceblue;
+            border: 5px solid olivedrab;
+            text-align: center;
+        }
+        #gameTitle {
+            color: white;
+            margin: 10px;
+            background-color: black;
+            text-align: center;
+        }
     </style>
 </head>
 
-<body style="background-color: black;">
-    <div style="text-align: center">
-        <span style="color: white;">Karma GameDev </span> |
-        <a href='javascript:toggleTouch()'>Show/hide touch controls</a> |
-    <div id="content" style="display: block; width: 100%; text-align: center"></div>
+<body>
+    <div id="gameTitle">
+        Karma GameDev Game
+    </div>
+    <div id="content"></div>
 
 </body>
