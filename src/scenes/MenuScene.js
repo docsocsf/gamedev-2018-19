@@ -10,12 +10,39 @@ class MenuScene extends Phaser.Scene {
 
     }
     create(){
-        this.scene.start('GameScene');
 
+        //Create Interactive Menu Interface with event listener
+        this.gameButton = this.add.text(100, 100, 'Start Game', {
+            fontFamily: 'Courier',
+            fontSize: '16px',
+            backgroundColor: '#000000',
+            color: '#ffffff',
+            stroke: '#fff',
+            align: 'center'
+        })
+            .setInteractive({ useHandCursor: true })
+            .on('pointerup', () => this.handleClick())
+            .on('pointerover', () => this.enterButtonHoverState())
+            .on('pointerout', () => this.enterButtonRestState());
     }
     update(){
 
     }
+
+    handleClick() {
+        this.scene.start('GameScene');
+    }
+    enterButtonHoverState(){
+        this.gameButton.setColor('#66CD00');
+
+    }
+    enterButtonRestState() {
+        this.gameButton.setColor('#ffffff');
+    }
 }
 
 export default MenuScene;
+
+//Reference:
+// Button Tutorial: https://snowbillr.github.io/blog/2018-07-03-buttons-in-phaser-3/
+// Text: https://rexrainbow.github.io/phaser3-rex-notes/docs/site/text/

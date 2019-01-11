@@ -45,7 +45,7 @@ class SplashScene extends Phaser.Scene {
         const logo = this.add.image(width / 2, height / 2, 'logo');
 
         //Delay the switch to the main menu
-        const splashScreenTime = 4000;
+        const splashScreenTime = 1000;
         var splashScreenTimer = this.time.addEvent({
                 delay: splashScreenTime,
                 callback: function(){
