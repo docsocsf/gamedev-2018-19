@@ -1,13 +1,21 @@
 //Functional Mixin addition to player member values
-const HealthBar = (target, state) => {
+const HealthBar = (state, target) => {
     Object.assign(state, {health: 100});
     Object.assign(target, state);
 };
 
+const StaminaBar = (state, target) => {
+    Object.assign(state, {stamina: 100});
+    Object.assign(target, state);
+};
+
+//Functional Mixin addition for player specific functions
 const canUseItem = (target) => {
     Object.assign(target, {
+        //Allow chained method calls by returning a reference to the object
         useItem(item){
             console.log("Activate item:" + item);
+            return this;
         }
     })
 
@@ -50,7 +58,8 @@ class PlayerBase extends Phaser.GameObjects.Sprite {
         this.state = {
             name: "player",
         };
-        HealthBar(PlayerBase.prototype, this.state);
+        HealthBar(this.state, PlayerBase.prototype);
+        StaminaBar(this.state, PlayerBase.prototype);
     }
 
     update(keys, time, delta) {
@@ -137,12 +146,20 @@ export {PlayerLeader, PlayerSlacker, PlayerHacker};
 // Sprite:
 // Player Structure: https://stackoverflow.com/questions/51158626/phaser-3-es6-how-to-create-a-player-class
 
+// Game Objects:
+// http://www.html5gamedevs.com/topic/32411-extending-phasergameobjectssprite-es6/
+
 // Javscript Classes:
 // https://medium.com/code-monkey/javascript-classes-and-prototypal-inheritance-2a53ed7343d8
 // Javascript Composition:
 // https://medium.com/code-monkey/object-composition-in-javascript-2f9b9077b5e6
-// Javascript Factory Functions:
+// https://medium.com/javascript-scene/why-composition-is-harder-with-classes-c3e627dcd0aa
+// https://developers.caffeina.com/object-composition-patterns-in-javascript-4853898bb9d0
+// Javascript Factory Functions, Default Parameters:
 // https://medium.com/javascript-scene/javascript-factory-functions-with-es6-4d224591a8b1
+// Javascript Mixins:
+// http://justinfagnani.com/2015/12/21/real-mixins-with-javascript-classes/
+// https://medium.com/javascript-scene/functional-mixins-composing-software-ffb66d5e731c
 
 // Entity and Component System:
 // http://vasir.net/blog/game-development/how-to-build-entity-component-system-in-javascript

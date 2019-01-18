@@ -33,9 +33,6 @@ class GameScene extends Phaser.Scene {
         this.playerLeader = new PlayerLeader({scene: this, key: 'playerLeader', x: 100, y: 100});
         this.playerSlacker = new PlayerSlacker({scene: this, key: 'playerSlacker', x: 200, y: 200});
         this.playerHacker = new PlayerHacker({scene: this, key: 'playerHacker', x: 300, y: 300});
-
-
-
     }
     update(time, delta){
 
