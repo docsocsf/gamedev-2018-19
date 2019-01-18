@@ -1,4 +1,5 @@
-import Player from "../gameobjects/player";
+//import {PlayerLeader, PlayerSlacker, PlayerHacker} from "../gameobjects/player";
+import  {PlayerLeader, PlayerSlacker, PlayerHacker} from "../gameobjects/playerComposition";
 
 class GameScene extends Phaser.Scene {
     constructor (){
@@ -29,14 +30,21 @@ class GameScene extends Phaser.Scene {
         //     y:
         //     key:
         //
-        this.player = new Player({scene: this, key: 'player', x: 20, y: 10});
+        this.playerLeader = new PlayerLeader({scene: this, key: 'playerLeader', x: 100, y: 100});
+        this.playerSlacker = new PlayerSlacker({scene: this, key: 'playerSlacker', x: 200, y: 200});
+        this.playerHacker = new PlayerHacker({scene: this, key: 'playerHacker', x: 300, y: 300});
+
+
+
     }
     update(time, delta){
 
         /*       Run the update method of all the game objects         */
 
         //Run the update method of the player
-        this.player.update(this.keys, time, delta);
+        this.playerLeader.update(this.keys, time, delta);
+        this.playerSlacker.update(this.keys, time, delta);
+        this.playerHacker.update(this.keys, time, delta);
     }
 }
 

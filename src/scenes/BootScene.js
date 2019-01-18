@@ -56,7 +56,7 @@ class BootScene extends Phaser.Scene {
 
         //Event Listeners for Phaser LoaderPlugin
         this.load.on('progress', function(value) {
-            console.log(value);
+            //console.log(value);
             percentText.setText(parseInt(value * 100) + '%');
             progressBar.clear();
             progressBar.fillStyle(0xffffff, 1);
@@ -64,7 +64,7 @@ class BootScene extends Phaser.Scene {
         });
 
         this.load.on('fileprogress', function(file) {
-            console.log(file.src);
+            //console.log(file.src);
             assetText.setText('Loading asset: ' + file.key);
         });
 

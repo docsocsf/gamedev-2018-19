@@ -20,7 +20,7 @@ class MenuScene extends Phaser.Scene {
             stroke: '#fff',
             align: 'center'
         })
-            .setInteractive({ useHandCursor: true })
+            .setInteractive({ useHandCursor: false })
             .on('pointerup', () => this.handleClick())
             .on('pointerover', () => this.enterButtonHoverState())
             .on('pointerout', () => this.enterButtonRestState());
