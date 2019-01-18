@@ -46,3 +46,6 @@ export default MenuScene;
 //Reference:
 // Button Tutorial: https://snowbillr.github.io/blog/2018-07-03-buttons-in-phaser-3/
 // Text: https://rexrainbow.github.io/phaser3-rex-notes/docs/site/text/
+// TODO More Indepth Menu:
+// TODO https://github.com/MattMcFarland/phaser-menu-system/blob/master/game/states/gamemenu.js
+// TODO https://phasergames.com/making-title-screen-phaser/
