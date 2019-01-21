@@ -45,6 +45,7 @@ let SpecialSummon = (superclass) => class extends superclass {
 
 //Base player object needs a constructor and an update function
 class PlayerBase extends Phaser.GameObjects.Sprite {
+
     constructor(config) {
         //new Sprite(scene, x, y, texture [, frame])
         //config = {
@@ -53,11 +54,13 @@ class PlayerBase extends Phaser.GameObjects.Sprite {
         //     y:
         //     key:
         // }
+
         super(config.scene, config.x, config.y, config.key);
         config.scene.add.existing(this);
         this.state = {
             name: "player",
         };
+
         HealthBar(this.state, PlayerBase.prototype);
         StaminaBar(this.state, PlayerBase.prototype);
     }
@@ -164,3 +167,4 @@ export {PlayerLeader, PlayerSlacker, PlayerHacker};
 // Entity and Component System:
 // http://vasir.net/blog/game-development/how-to-build-entity-component-system-in-javascript
 // http://cowboyprogramming.com/2007/01/05/evolve-your-heirachy/
+//asd
