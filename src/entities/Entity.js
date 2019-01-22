@@ -1,9 +1,6 @@
-
-class Entity extends Phaser.GameObjects.GameObject {
+const Entity = (PhaserClass) => class extends PhaserClass {
     constructor(scene, type, name, count) {
         super(scene, type);
-        this.setName(name);
-
         //Generate an ID for the entity
         this.id = (Math.random() * 100000000 | 0).toString(16) + count;
         this.name = name;
@@ -33,18 +30,17 @@ class Entity extends Phaser.GameObjects.GameObject {
         var output = {
             id: this.id,
             name: this.name,
-            type: this.type
         };
         output.components = this.components;
         console.log(JSON.stringify(output, null, 4));
         return this;
     };
+};
 
-
-}
 
 export default Entity;
 
 //Reference:
 // Classes: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
 // Stringify: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
+// Mixins: http://exploringjs.com/es6/ch_classes.html#sec_simple-mixins

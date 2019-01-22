@@ -1,4 +1,3 @@
-//List Components here
 var Components = {};
 
 Components.HealthData = function ComponentHealth(healthValue) {

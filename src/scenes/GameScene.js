@@ -12,8 +12,8 @@ class GameScene extends Phaser.Scene {
     }
     create(){
         this.entity = Assemblages.HealthAssemblage(this, "Test", "entity1", 0 );
-        this.entity.printEntity();
     }
+
     update(time, delta){
         // Created an object to pass into player characters to handle input
         // this.keys will contain all we need to control Player Character
