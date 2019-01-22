@@ -1,5 +1,4 @@
-//import {PlayerLeader, PlayerSlacker, PlayerHacker} from "../gameobjects/player";
-import  {PlayerLeader, PlayerSlacker, PlayerHacker} from "../gameobjects/playerComposition";
+import Assemblages from "../assemblages/Assemblages";
 
 class GameScene extends Phaser.Scene {
     constructor (){
@@ -10,38 +9,34 @@ class GameScene extends Phaser.Scene {
     }
     preload(){
         console.log("GameScene");
-
     }
     create(){
-
+        this.entity = Assemblages.HealthAssemblage(this, "Test", "entity1", 0 );
+        this.entity.printEntity();
+    }
+    update(time, delta){
         // Created an object to pass into player characters to handle input
         // this.keys will contain all we need to control Player Character
-        this.keys = {
+        var keys = {
             up: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP),
             left: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT),
             right: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT),
             down: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN)
         };
 
-        // Create the player character object
-        //config = {
-        //     scene:
-        //     x:
-        //     y:
-        //     key:
-        //
-        this.playerLeader = new PlayerLeader({scene: this, key: 'playerLeader', x: 100, y: 100});
-        this.playerSlacker = new PlayerSlacker({scene: this, key: 'playerSlacker', x: 200, y: 200});
-        this.playerHacker = new PlayerHacker({scene: this, key: 'playerHacker', x: 300, y: 300});
-    }
-    update(time, delta){
-
         /*       Run the update method of all the game objects         */
+        let input = {
+            left: keys.left.isDown,
+            right: keys.right.isDown,
+            down: keys.down.isDown,
+            up: keys.up.isDown,
+        };
 
-        //Run the update method of the player
-        this.playerLeader.update(this.keys, time, delta);
-        this.playerSlacker.update(this.keys, time, delta);
-        this.playerHacker.update(this.keys, time, delta);
+        if(input.up){
+            const damage = 5;
+            this.entity.emit('decreaseHealth', damage);
+        }
+
     }
 }
 
