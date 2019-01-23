@@ -49,3 +49,4 @@ export default MenuScene;
 // TODO More Indepth Menu:
 // TODO https://github.com/MattMcFarland/phaser-menu-system/blob/master/game/states/gamemenu.js
 // TODO https://phasergames.com/making-title-screen-phaser/
+// TODO http://www.photonstorm.com/phaser/advanced-phaser-and-typescript-projects

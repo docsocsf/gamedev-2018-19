@@ -82,8 +82,10 @@ class BootScene extends Phaser.Scene {
         this.loadSplashResources();
         //Main Menu
         this.loadMenuResources();
+        //Game Resources
+        this.loadGameResources();
         //Used to simply test loading screen
-        this.testLoadingBar();
+        //this.testLoadingBar();
     }
 
     loadSplashResources () {
@@ -92,6 +94,10 @@ class BootScene extends Phaser.Scene {
 
     loadMenuResources() {
 
+    }
+
+    loadGameResources() {
+        this.load.image('player', '../../assets/images/pangball.png');
     }
 
     testLoadingBar () {

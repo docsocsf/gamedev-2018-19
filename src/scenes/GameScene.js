@@ -1,4 +1,5 @@
 import Assemblages from "../assemblages/Assemblages";
+import {width, height} from "../helpers/util.js";
 
 class GameScene extends Phaser.Scene {
     constructor (){
@@ -11,32 +12,31 @@ class GameScene extends Phaser.Scene {
         console.log("GameScene");
     }
     create(){
-        this.entity = Assemblages.HealthAssemblage(this, "Test", "entity1", 0 );
+
+        this.matter.world.setBounds(0, 0, width, height, 10, true, true, true, true);
+        this.cursors = this.input.keyboard.createCursorKeys();
+        this.player = Assemblages.PlayerAssemblage(this, 400, 300, 'player', 0, {}, "player", 0);
     }
 
     update(time, delta){
-        // Created an object to pass into player characters to handle input
-        // this.keys will contain all we need to control Player Character
-        var keys = {
-            up: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP),
-            left: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT),
-            right: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT),
-            down: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN)
-        };
 
-        /*       Run the update method of all the game objects         */
-        let input = {
-            left: keys.left.isDown,
-            right: keys.right.isDown,
-            down: keys.down.isDown,
-            up: keys.up.isDown,
-        };
-
-        if(input.up){
-            const damage = 5;
-            this.entity.emit('decreaseHealth', damage);
+        //Left Right Input
+        if (this.cursors.left.isDown) {
+            this.player.emit('leftDown', this.player);
+        } else if (this.cursors.right.isDown) {
+            this.player.emit('rightDown', this.player);
+        } else {
+            this.player.emit('noVelocityX', this.player);
         }
 
+        //Up Down Input
+        if (this.cursors.up.isDown) {
+            this.player.emit('upDown', this.player);
+        } else if (this.cursors.down.isDown){
+            this.player.emit('downDown', this.player);
+        } else {
+            this.player.emit('noVelocityY', this.player);
+        }
     }
 }
 
@@ -44,3 +44,4 @@ export default GameScene;
 
 //References:
 // Example Game Scene: https://github.com/nkholski/phaser3-es6-webpack/blob/master/src/scenes/GameScene.js
+// Matter World: https://photonstorm.github.io/phaser3-docs/Phaser.Physics.Matter.World.html

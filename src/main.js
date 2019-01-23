@@ -3,18 +3,23 @@ import BootScene from './scenes/BootScene';
 import SplashScene from './scenes/SplashScene';
 import MenuScene from './scenes/MenuScene';
 import GameScene from './scenes/GameScene';
+import {width, height} from "./helpers/util.js";
 
 const config = {
     type: Phaser.AUTO,
     parent: 'content',
     pixelArt: true,
     title: 'Karma',
-    width: 800,
-    height: 600,
+    width: width,
+    height: height,
     physics: {
-        default: 'arcade',
-        arcade: {
-            gravity: { y: 0 }
+        default: 'matter',
+        matter: {
+            debug: false,
+            gravity: {
+                x: 0,
+                y: 0
+            }
         }
     },
     scene: [
@@ -27,3 +32,5 @@ const config = {
 
 const game = new Phaser.Game(config);
 game.scene.start('BootScene');
+
+//Using Matter physics

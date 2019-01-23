@@ -1,9 +1,9 @@
 import Entity from "./Entity.js";
 
 class BaseEntity extends Entity(Phaser.GameObjects.GameObject) {
-    constructor(scene, type, name, count) {
-        super(scene, type, name, count);
-        this.setName(name);
+    constructor(setup) {
+        super(setup.scene, setup.type);
+        this.setName(setup.name);
     }
 }
 
