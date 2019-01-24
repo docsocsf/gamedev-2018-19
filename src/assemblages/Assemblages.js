@@ -5,19 +5,6 @@ import MatterSpriteEntity from "../entities/MatterSpriteEntity";
 var Assemblages = {};
 
 Assemblages = {
-    //EXAMPLE ASSEMBLAGE
-    // HealthAssemblage: function HealthAssemblage(scene, type, name, count) {
-    //     var setup = {
-    //         scene: scene,
-    //         type: type,
-    //         name: name,
-    //         count: count
-    //     };
-    //     var entity = new BaseEntity(setup);
-    //     entity.addComponent(new Components.HealthData(100));
-    //     entity.addComponent(new Components.HealthLogic(entity));
-    //     return entity;
-    // },
     PlayerAssemblage: function PlayerAssemblage(scene, x, y, texture, frame, option, name, count) {
         var setup = {
             scene: scene,
