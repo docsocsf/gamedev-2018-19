@@ -1,24 +1,25 @@
 import Assemblages from "../assemblages/Assemblages";
-import {width, height} from "../helpers/util.js";
+import { width, height } from "../helpers/util.js";
 
 class GameScene extends Phaser.Scene {
-    constructor (){
+    constructor() {
         super({
             key: `GameScene`
         });
 
     }
-    preload(){
+    preload() {
         console.log("GameScene");
     }
-    create(){
+    create() {
 
         this.matter.world.setBounds(0, 0, width, height, 10, true, true, true, true);
         this.cursors = this.input.keyboard.createCursorKeys();
         this.player = Assemblages.PlayerAssemblage(this, 400, 300, 'player', 0, {}, "player", 0);
+        this.region = Assemblages.RegionAssemblage(this, 0, 0, 'player', 0, {}, 'player', 0);
     }
 
-    update(time, delta){
+    update(time, delta) {
 
         //Left Right Input
         if (this.cursors.left.isDown) {
@@ -32,7 +33,7 @@ class GameScene extends Phaser.Scene {
         //Up Down Input
         if (this.cursors.up.isDown) {
             this.player.emit('upDown', this.player);
-        } else if (this.cursors.down.isDown){
+        } else if (this.cursors.down.isDown) {
             this.player.emit('downDown', this.player);
         } else {
             this.player.emit('noVelocityY', this.player);

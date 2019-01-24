@@ -1,6 +1,7 @@
 import BaseEntity from "../entities/BaseEntity.js";
 import Components from "../components/Components.js";
 import MatterSpriteEntity from "../entities/MatterSpriteEntity";
+import Region from "../entities/Region";
 
 var Assemblages = {};
 
@@ -21,6 +22,34 @@ Assemblages = {
         entity.addComponent(new Components.PositionData(x, y, entity));
         entity.addComponent(new Components.RenderData(texture, entity));
         entity.addComponent(new Components.MovementLogic(entity));
+        return entity;
+    },
+    RegionAssemblage: function RegionAssemblage(scene, x, y, texture, frame, option, name, count) {
+        var setup = {
+            scene: scene,
+            x: x,
+            y: y,
+            texture: texture,
+            frame: frame,
+            option: option,
+            name: name,
+            count: count
+        };
+        var entity = new MatterSpriteEntity(setup);
+
+        // We require a Dimensions component to say how large this will be e.g. 800 x 600 (width, height)
+
+
+        // entity.addComponent(new Components.MovementData(2));
+
+        // Position data represents origin.
+        entity.addComponent(new Components.PositionData(x, y, entity));
+        // Capture state: Logic for whether in a given state? Some boolean flag?
+
+        // Will tell entity to map a region texture to it. Will the texture be of required size or a fixed size
+        // we will loop?
+        entity.addComponent(new Components.RenderData(texture, entity));
+        // entity.addComponent(new Components.MovementLogic(entity));
         return entity;
     }
 };
