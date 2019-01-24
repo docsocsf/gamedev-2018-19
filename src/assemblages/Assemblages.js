@@ -5,18 +5,19 @@ import MatterSpriteEntity from "../entities/MatterSpriteEntity";
 var Assemblages = {};
 
 Assemblages = {
-    HealthAssemblage: function HealthAssemblage(scene, type, name, count) {
-        var setup = {
-            scene: scene,
-            type: type,
-            name: name,
-            count: count
-        };
-        var entity = new BaseEntity(setup);
-        entity.addComponent(new Components.HealthData(100));
-        entity.addComponent(new Components.HealthLogic(entity));
-        return entity;
-    },
+    //EXAMPLE ASSEMBLAGE
+    // HealthAssemblage: function HealthAssemblage(scene, type, name, count) {
+    //     var setup = {
+    //         scene: scene,
+    //         type: type,
+    //         name: name,
+    //         count: count
+    //     };
+    //     var entity = new BaseEntity(setup);
+    //     entity.addComponent(new Components.HealthData(100));
+    //     entity.addComponent(new Components.HealthLogic(entity));
+    //     return entity;
+    // },
     PlayerAssemblage: function PlayerAssemblage(scene, x, y, texture, frame, option, name, count) {
         var setup = {
             scene: scene,
@@ -29,7 +30,9 @@ Assemblages = {
             count: count
         };
         var entity = new MatterSpriteEntity(setup);
-        entity.addComponent(new Components.MovementData(5));
+        entity.addComponent(new Components.MovementData(2));
+        entity.addComponent(new Components.PositionData(x, y, entity));
+        entity.addComponent(new Components.RenderData(texture, entity));
         entity.addComponent(new Components.MovementLogic(entity));
         return entity;
     }

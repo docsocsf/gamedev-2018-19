@@ -4,6 +4,7 @@ class BaseEntity extends Entity(Phaser.GameObjects.GameObject) {
     constructor(setup) {
         super(setup.scene, setup.type);
         this.setName(setup.name);
+        setup.scene.add.existing(this);
     }
 }
 

@@ -5,8 +5,6 @@ class MatterSpriteEntity extends Entity(Phaser.Physics.Matter.Sprite) {
         //new Sprite(world, x, y, texture [, frame] [, options])
         super(setup.scene.matter.world, setup.x, setup.y, setup.texture, setup.frame, setup.options);
         this.setName(setup.name);
-        this.setTexture(setup.texture);
-        this.setPosition(setup.x, setup.y);
         setup.scene.add.existing(this);
     }
 }
