@@ -16,6 +16,7 @@ class GameScene extends Phaser.Scene {
         this.matter.world.setBounds(0, 0, width, height, 10, true, true, true, true);
         this.cursors = this.input.keyboard.createCursorKeys();
         this.player = Assemblages.PlayerAssemblage(this, 400, 300, 'player', 0, {}, "player", 0);
+        this.ui = Assemblages.UIAssemblage(this, 600, 300, 'player', 0, {}, "ui", 0);
     }
 
     update(time, delta){
