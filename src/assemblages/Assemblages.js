@@ -22,6 +22,7 @@ Assemblages = {
         entity.addComponent(new Components.PositionData(x, y, entity));
         entity.addComponent(new Components.RenderData(texture, entity));
         entity.addComponent(new Components.MovementLogic(entity));
+        entity.addComponent(new Components.Depth(1, entity));
         return entity;
     },
     RegionAssemblage: function RegionAssemblage(scene, x, y, texture, frame, option, name, count) {
@@ -40,8 +41,10 @@ Assemblages = {
         // We require a Dimensions component to say how large this will be e.g. 800 x 600 (width, height)
 
 
-        // entity.addComponent(new Components.MovementData(2));
+        // TODO: Add collision event to trigger print on console when texture collides with a player
 
+        entity.addComponent(new Components.Dimensions(entity));
+        entity.addComponent(new Components.Depth(0, entity));
         // Position data represents origin.
         entity.addComponent(new Components.PositionData(x, y, entity));
         // Capture state: Logic for whether in a given state? Some boolean flag?

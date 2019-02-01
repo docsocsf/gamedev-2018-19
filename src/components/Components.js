@@ -39,33 +39,33 @@ Components.RenderData.prototype.name = 'render_data';
 /*                                  Player Logic Components                                 */
 Components.MovementLogic = function MovementLogic(entity) {
 
-    var moveLeft = function moveLeft(gameObject){
+    var moveLeft = function moveLeft(gameObject) {
         gameObject.setVelocityX(-entity.components.movement_data.velocity);
     };
     entity.on('leftDown', moveLeft);
 
-    var moveRight = function moveRight(gameObject){
+    var moveRight = function moveRight(gameObject) {
         gameObject.setVelocityX(entity.components.movement_data.velocity);
     };
     entity.on('rightDown', moveRight);
 
-    var stopVelocityX = function stopVelocityX(gameObject){
+    var stopVelocityX = function stopVelocityX(gameObject) {
         gameObject.setVelocityX(0);
     };
     entity.on('noVelocityX', stopVelocityX);
 
 
-    var moveUp = function moveUp(gameObject){
+    var moveUp = function moveUp(gameObject) {
         gameObject.setVelocityY(-entity.components.movement_data.velocity);
     };
     entity.on('upDown', moveUp);
 
-    var moveDown = function moveDown(gameObject){
+    var moveDown = function moveDown(gameObject) {
         gameObject.setVelocityY(entity.components.movement_data.velocity);
     };
     entity.on('downDown', moveDown);
 
-    var stopVelocityY = function stopVelocityY(gameObject){
+    var stopVelocityY = function stopVelocityY(gameObject) {
         gameObject.setVelocityY(0);
     };
     entity.on('noVelocityY', stopVelocityY);
@@ -74,6 +74,30 @@ Components.MovementLogic = function MovementLogic(entity) {
 };
 Components.MovementLogic.prototype.name = 'movement_logic';
 //////////////////////////////////////////////////////////////////////////////////////////////
+
+/*                              Region Data Components                                      */
+
+Components.Dimensions = function Dimensions(entity, width, height) {
+    width = width || 200;
+    height = height || 100;
+    this.width = width;
+    this.height = height;
+    entity.setDisplaySize(width, height);
+    return this;
+};
+
+Components.Depth = function Depth(depth, entity) {
+    depth = depth || 0;
+    this.depth = depth;
+    entity.setDepth(depth);
+    return this;
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
 
 export default Components;
 

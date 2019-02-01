@@ -3,7 +3,7 @@ import Entity from "./Entity.js";
 class MatterSpriteEntity extends Entity(Phaser.Physics.Matter.Sprite) {
     constructor(setup) {
         //new Sprite(world, x, y, texture [, frame] [, options])
-        super(setup.scene.matter.world, setup.x, setup.y, setup.texture, setup.frame, setup.options);
+        super(setup.scene.matter.world, setup.x, setup.y, setup.texture, setup.frame, setup.option);
         this.setName(setup.name);
         setup.scene.add.existing(this);
     }

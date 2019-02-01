@@ -1,13 +1,13 @@
 //Load the game assets in this scene
 
 class BootScene extends Phaser.Scene {
-    constructor (){
+    constructor() {
         super({
             key: `BootScene`
         });
     }
 
-    preload(){
+    preload() {
         console.log("BootScene");
 
         //Create the Progress Bar
@@ -55,7 +55,7 @@ class BootScene extends Phaser.Scene {
 
 
         //Event Listeners for Phaser LoaderPlugin
-        this.load.on('progress', function(value) {
+        this.load.on('progress', function (value) {
             //console.log(value);
             percentText.setText(parseInt(value * 100) + '%');
             progressBar.clear();
@@ -63,12 +63,12 @@ class BootScene extends Phaser.Scene {
             progressBar.fillRect(250, 280, 300 * value, 30);
         });
 
-        this.load.on('fileprogress', function(file) {
+        this.load.on('fileprogress', function (file) {
             //console.log(file.src);
             assetText.setText('Loading asset: ' + file.key);
         });
 
-        this.load.on('complete', function() {
+        this.load.on('complete', function () {
             console.log('complete');
             loadingText.destroy();
             percentText.destroy();
@@ -88,7 +88,7 @@ class BootScene extends Phaser.Scene {
         //this.testLoadingBar();
     }
 
-    loadSplashResources () {
+    loadSplashResources() {
         this.load.image('logo', '../../assets/images/GameDevlogo.png');
     }
 
@@ -98,11 +98,12 @@ class BootScene extends Phaser.Scene {
 
     loadGameResources() {
         this.load.image('player', '../../assets/images/pangball.png');
+        this.load.image('region', '../../assets/images/region.png');
     }
 
-    testLoadingBar () {
+    testLoadingBar() {
         for (var i = 0; i < 100; i++) {
-            this.load.image('logo'+i, '../../assets/images/GameDevlogo.png');
+            this.load.image('logo' + i, '../../assets/images/GameDevlogo.png');
         }
     }
 
