@@ -23,6 +23,8 @@ Assemblages = {
         entity.addComponent(new Components.RenderData(texture, entity));
         entity.addComponent(new Components.MovementLogic(entity));
         entity.addComponent(new Components.Depth(1, entity));
+        entity.addComponent(new Components.Collisions(1, entity));
+        entity.addComponent(new Components.CollisionsWith(2, entity));
         return entity;
     },
     RegionAssemblage: function RegionAssemblage(scene, x, y, texture, frame, option, name, count) {
@@ -41,7 +43,8 @@ Assemblages = {
         // We require a Dimensions component to say how large this will be e.g. 800 x 600 (width, height)
 
 
-        // TODO: Add collision event to trigger print on console when texture collides with a player
+        // TODO: Add collision event to trigger print on console when texture collides with a player.
+        // Look at examples for collisions to do capture state component. Add collision groups?
 
         entity.addComponent(new Components.Dimensions(entity));
         entity.addComponent(new Components.Depth(0, entity));
@@ -52,6 +55,8 @@ Assemblages = {
         // Will tell entity to map a region texture to it. Will the texture be of required size or a fixed size
         // we will loop?
         entity.addComponent(new Components.RenderData(texture, entity));
+        entity.addComponent(new Components.Collisions(2, entity));
+        entity.addComponent(new Components.CollisionsWith(1, entity));
         // entity.addComponent(new Components.MovementLogic(entity));
         return entity;
     }

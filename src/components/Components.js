@@ -91,7 +91,21 @@ Components.Depth = function Depth(depth, entity) {
     this.depth = depth;
     entity.setDepth(depth);
     return this;
-}
+};
+
+Components.Collisions = function Collisions(collisionCategory, entity) {
+    collisionCategory = collisionCategory || 0;
+    this.collisionCategory = collisionCategory;
+    entity.setCollisionCategory(collisionCategory);
+    return this;
+};
+
+Components.CollisionsWith = function CollisionsWith(collisionsWith, entity) {
+    collisionsWith = collisionsWith || 0;
+    this.collisionsWith = collisionsWith;
+    entity.setCollidesWith(collisionsWith);
+    return this;
+};
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 
